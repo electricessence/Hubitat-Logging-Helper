@@ -1,10 +1,11 @@
-/* groovylint-disable UnusedPrivateMethod */
+/* groovylint-disable IfStatementBraces, UnusedPrivateMethod */
+/* groovylint-disable-next-line CompileStatic */
 library(
     name: 'LoggingHelper',
     namespace: 'Electrified',
     author: 'electricessence',
     description: 'A simple logging helper library for Hubitat.',
-    version: '1.0.0'
+    version: '1.0.1'
 )
 
 import groovy.transform.Field
@@ -24,8 +25,9 @@ import groovy.transform.Field
 @Field final static String DEFAULT_LOG_LEVEL = 'info'
 
 private boolean isLogLevelEnabled(String level) {
+    /* groovylint-disable-next-line NoDef, VariableTypeRequired */
     def currentLevel = settings?.logLevel
-    if (currentLevel == null || currentLevel.isEmpty()) {
+    if (currentLevel == null || currentLevel == '') {
         // Default to INFO if not set.
         currentLevel = DEFAULT_LOG_LEVEL
     }
