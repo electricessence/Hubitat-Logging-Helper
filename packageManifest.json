@@ -2,10 +2,10 @@
     "packageName": "Logging Helper",
     "author": "electricessence",
     "version": "1.0.0",
-    "location": "https://raw.githubusercontent.com/electricessence/Hubitat-Logging-Helper/main/Electrified.LoggingHelper.groovy",
+    "location": "https://raw.githubusercontent.com/electricessence/Hubitat-Logging-Helper/v1.0.0/Electrified.LoggingHelper.groovy",
     "description": "A simple logging helper library for Hubitat.",
     "namespace": "Electrified",
-    "documentationLink": "https://github.com/electricessence/Hubitat-Logging-Helper/blob/main/README.md",
+    "documentationLink": "https://github.com/electricessence/Hubitat-Logging-Helper/tree/v1.0.0/README.md",
     "license": "MIT",
     "required": false,
     "apps": [],
@@ -15,7 +15,7 @@
         "id": "ElectrifiedLoggingHelper",
         "name": "LoggingHelper",
         "namespace": "Electrified",
-        "location": "https://raw.githubusercontent.com/electricessence/Hubitat-Logging-Helper/main/Electrified.LoggingHelper.groovy",
+        "location": "https://raw.githubusercontent.com/electricessence/Hubitat-Logging-Helper/v1.0.0/packageManifest.json",
         "required": false
       }
     ]
