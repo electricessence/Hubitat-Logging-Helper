@@ -5,18 +5,20 @@ library(
     namespace: 'Electrified',
     author: 'electricessence',
     description: 'A simple logging helper library for Hubitat.',
-    version: '1.0.1'
+    version: '1.0.2'
 )
 
 import groovy.transform.Field
 
 @Field final static Map LOG_LEVELS = [
+    trace: 0,
     debug: 1,
     info : 2,
     warn : 3,
     error: 4
 ]
 
+@Field final static String TRACE = 'trace'
 @Field final static String DEBUG = 'debug'
 @Field final static String INFO = 'info'
 @Field final static String WARN = 'warn'
@@ -40,6 +42,10 @@ private boolean isLogLevelEnabled(String level) {
     return LOG_LEVELS[level] >= LOG_LEVELS[currentLevel]
 }
 
+private void logTrace(String message) {
+    logLevel(TRACE, message)
+}
+
 private void logDebug(String message) {
     logLevel(DEBUG, message)
 }
@@ -54,6 +60,10 @@ private void logWarn(String message) {
 
 private void logError(String message) {
     logLevel(ERROR, message)
+}
+
+private void logTrace(Closure message) {
+    logLevel(TRACE, message)
 }
 
 private void logDebug(Closure message) {
@@ -76,6 +86,7 @@ private void logLevel(String level, String message, boolean force = false) {
     if (!force && !isLogLevelEnabled(level)) return
     String msg = "${device.displayName}: ${message}"
     switch (level) {
+        case TRACE:
         case DEBUG:
             log.debug msg
             break

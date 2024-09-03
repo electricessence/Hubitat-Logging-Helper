@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Logging Helper** library provides a simple, consistent way to handle logging within Hubitat drivers and apps. It allows you to manage log levels and provides convenient methods for logging messages at various levels (`debug`, `info`, `warn`, `error`). This library helps in keeping your code clean and your logs informative.
+The **Logging Helper** library provides a simple, consistent way to handle logging within Hubitat drivers and apps. It allows you to manage log levels and provides convenient methods for logging messages at various levels (`trace`, `debug`, `info`, `warn`, `error`). This library helps in keeping your code clean and your logs informative.
 
 ## Features
 
@@ -43,7 +43,7 @@ The **Logging Helper** library provides a simple, consistent way to handle loggi
    ```
 
 2. **Set Up Log Levels**:
-   - Ensure your driver or app has a `logLevel` preference, typically an `enum` with values like `debug`, `info`, `warn`, and `error`.
+   - Ensure your driver or app has a `logLevel` preference, typically an `enum` with values like `trace`, `debug`, `info`, `warn`, and `error`.
 
    Example:
    ```groovy
@@ -53,7 +53,7 @@ The **Logging Helper** library provides a simple, consistent way to handle loggi
            type: 'enum',
            title: 'Log Level',
            description: 'Select the desired level of logging.',
-           options: ['debug', 'info', 'warn', 'error'],
+           options: ['trace', 'debug', 'info', 'warn', 'error'],
            defaultValue: 'warn',
            required: true
        )
@@ -63,6 +63,7 @@ The **Logging Helper** library provides a simple, consistent way to handle loggi
 3. **Log Messages**:
    - Use the provided methods to log messages at the appropriate levels.
    ```groovy
+   logTrace "This is a trace (debug) message."
    logDebug "This is a debug message."
    logInfo "This is an info message."
    logWarn "This is a warning."
@@ -73,7 +74,3 @@ The **Logging Helper** library provides a simple, consistent way to handle loggi
    ```groovy
    logDebug { "This message is only constructed if debug logging is enabled: ${text}" }
    ```
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
