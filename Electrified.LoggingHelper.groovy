@@ -5,7 +5,7 @@ library(
     namespace: 'Electrified',
     author: 'electricessence',
     description: 'A simple logging helper library for Hubitat.',
-    version: '1.0.2'
+    version: '1.0.3'
 )
 
 import groovy.transform.Field
@@ -87,6 +87,8 @@ private void logLevel(String level, String message, boolean force = false) {
     String msg = "${device.displayName}: ${message}"
     switch (level) {
         case TRACE:
+            log.trace msg
+            break
         case DEBUG:
             log.debug msg
             break
